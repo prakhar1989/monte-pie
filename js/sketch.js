@@ -5,6 +5,9 @@
   Canvas = {
     width: 1200,
     height: 800,
+    totalRuns: 0,
+    insideCircle: 0,
+    textSize: 14,
     gridPadding: 20,
     pointRadius: 5,
     radius: 320,
@@ -39,30 +42,48 @@
   };
 
   runExperiment = function() {
-    var pointX, pointY, x, y;
+    var inside, pointX, pointY, x, y;
     x = Math.random() * Canvas.radius;
     y = Math.random() * Canvas.radius;
     noStroke();
     if ((distance(x, y)) - Canvas.radius > 0) {
       fill(226, 122, 63);
+      inside = false;
     } else {
       fill(69, 178, 157);
+      inside = true;
     }
     pointX = Canvas.getOrigin().x + x;
     pointY = Canvas.getOrigin().y - y;
-    return ellipse(pointX, pointY, Canvas.pointRadius, Canvas.pointRadius);
+    ellipse(pointX, pointY, Canvas.pointRadius, Canvas.pointRadius);
+    return inside;
   };
 
   window.setup = function() {
-    var i, _i, _results;
     createCanvas(Canvas.width + 1, Canvas.height + 1);
     noStroke();
     drawGrid();
-    _results = [];
-    for (i = _i = 0; _i <= 1000; i = ++_i) {
-      _results.push(runExperiment());
+    return textFont("monospace");
+  };
+
+  window.draw = function() {
+    var pie;
+    Canvas.insideCircle += runExperiment() ? 1 : 0;
+    Canvas.totalRuns += 1;
+    pie = (4.0 * Canvas.insideCircle) / Canvas.totalRuns;
+    fill(255);
+    rect(Canvas.width - 270, 1, 270, 120);
+    stroke(0, 0, 0, 0);
+    fill(196, 77, 88);
+    textSize(Canvas.textSize);
+    text("Total points (m): " + Canvas.totalRuns, Canvas.width - 260, 30);
+    text("Points inside circle (n): " + Canvas.insideCircle, Canvas.width - 260, 50);
+    text("Estimated Pie = 4 x n / m", Canvas.width - 260, 70);
+    textSize(Canvas.textSize + 2);
+    text("\u03a0 = " + pie, Canvas.width - 260, 100);
+    if (Canvas.totalRuns > 1000) {
+      return noLoop();
     }
-    return _results;
   };
 
 }).call(this);
