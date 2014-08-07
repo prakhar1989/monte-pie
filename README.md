@@ -21,4 +21,4 @@ Now suppose you do `m` experiments and in `n` of those experiments, the random p
 - Coffeescript
 
 ### Demo
-[Demo]()
+[Play it here](http://montepie.herokuapp.com/)
