@@ -5,8 +5,15 @@ Canvas =
   insideCircle: 0
   textSize: 14
   gridPadding: 40
-  pointRadius: 5
+  pointRadius: 10
+  input: null
+  button: null
   radius: 320
+  textArea:
+    x: 10
+    y: 20
+    w: 250
+    h: 90
   getOrigin: () ->
     x: this.width/2
     y: this.height/2
@@ -65,28 +72,45 @@ runExperiment = () ->
   # return whether point inside or outside
   inside
 
+setupDOM = () ->
+  Canvas.input = createInput()
+  Canvas.input.position 20, 70
+  Canvas.button = createButton 'Simulate!'
+  Canvas.button.position 150, 70
+  Canvas.button.mousePressed () ->
+    resetCounts()
+    `loop()`
+
+showResults = () ->
+  fill 255
+  rect Canvas.textArea.x - 10, Canvas.textArea.y - 10, Canvas.textArea.w, Canvas.textArea.h
+  stroke 0, 0, 0, 0
+  fill 196, 77, 88
+
+  # calc pi
+  pi = (4.0 * Canvas.insideCircle) / Canvas.totalRuns
+  
+  textSize 12
+  text "Total Experiments (m): " + Canvas.totalRuns, Canvas.textArea.x, Canvas.textArea.y
+  text "Points inside circle (n): " + Canvas.insideCircle, Canvas.textArea.x, Canvas.textArea.y + 20
+  text "Estimated Pi = 4 x n / m", Canvas.textArea.x, Canvas.textArea.y + 40
+  textSize 18
+  text "\u03a0 = " + pi, Canvas.textArea.x, Canvas.textArea.y + 70
+
+resetCounts = () ->
+  Canvas.insideCircle = 0
+  Canvas.totalRuns = 0
+
 window.setup = () ->
+  noLoop()
   createCanvas Canvas.width + 1, Canvas.height + 1
   noStroke()
   drawGrid()
-  # slider = createSlider 10, 1000, 20
+  setupDOM()
 
 window.draw = () ->
   Canvas.insideCircle += if runExperiment() then 1 else 0
   Canvas.totalRuns += 1
-
-  pie = (4.0 * Canvas.insideCircle) / Canvas.totalRuns
-
-  fill 255
-  rect Canvas.width - 270, 1, 270, 120
-  stroke 0, 0, 0, 0
-  fill 196, 77, 88
-  textSize Canvas.textSize
-  text "Total Experiments (m): " + Canvas.totalRuns, Canvas.width - 260, 30
-  text "Points inside circle (n): " + Canvas.insideCircle, Canvas.width - 260, 50
-  text "Estimated Pie = 4 x n / m", Canvas.width - 260, 70
-  textSize Canvas.textSize + 2
-  text "\u03a0 = " + pie, Canvas.width - 260, 100
-
-  if Canvas.totalRuns > 10
+  showResults()
+  if Canvas.totalRuns + 1 > parseInt Canvas.input.value() || 10
     noLoop()
