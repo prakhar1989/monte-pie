@@ -76,12 +76,12 @@
     stroke(0, 0, 0, 0);
     fill(196, 77, 88);
     textSize(Canvas.textSize);
-    text("Total points (m): " + Canvas.totalRuns, Canvas.width - 260, 30);
+    text("Total Experiments (m): " + Canvas.totalRuns, Canvas.width - 260, 30);
     text("Points inside circle (n): " + Canvas.insideCircle, Canvas.width - 260, 50);
     text("Estimated Pie = 4 x n / m", Canvas.width - 260, 70);
     textSize(Canvas.textSize + 2);
     text("\u03a0 = " + pie, Canvas.width - 260, 100);
-    if (Canvas.totalRuns > 1000) {
+    if (Canvas.totalRuns > 10) {
       return noLoop();
     }
   };

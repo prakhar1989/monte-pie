@@ -89,5 +89,5 @@ window.draw = () ->
   textSize Canvas.textSize + 2
   text "\u03a0 = " + pie, Canvas.width - 260, 100
 
-  if Canvas.totalRuns > 1000
+  if Canvas.totalRuns > 10
     noLoop()
