@@ -3,12 +3,12 @@
   var Canvas, distance, drawGrid, runExperiment;
 
   Canvas = {
-    width: 1200,
+    width: 800,
     height: 800,
     totalRuns: 0,
     insideCircle: 0,
     textSize: 14,
-    gridPadding: 20,
+    gridPadding: 40,
     pointRadius: 5,
     radius: 320,
     getOrigin: function() {
@@ -25,6 +25,7 @@
 
   drawGrid = function() {
     var i, _i, _j, _ref, _ref1, _ref2, _ref3;
+    textFont("monospace");
     fill(244);
     for (i = _i = 0, _ref = Canvas.height, _ref1 = Canvas.gridPadding; _ref1 > 0 ? _i <= _ref : _i >= _ref; i = _i += _ref1) {
       rect(0, i, Canvas.width, 1);
@@ -62,8 +63,7 @@
   window.setup = function() {
     createCanvas(Canvas.width + 1, Canvas.height + 1);
     noStroke();
-    drawGrid();
-    return textFont("monospace");
+    return drawGrid();
   };
 
   window.draw = function() {

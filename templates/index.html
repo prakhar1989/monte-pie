@@ -1,31 +1,22 @@
 <head>
 	<title>Monte-pie | computing pie with monte-carlo simulations</title>
   <script language="javascript" src="/static/lib/p5.min.js"></script>
+  <script language="javascript" src="/static/lib/p5.dom.js"></script>
   <script language="javascript" src="/static/js/sketch.js"></script>
 	<style type="text/css">
 		body{
 			font-family: sans-serif;
 			margin:0; padding: 0;
-			font-size: 13px;
+			font-size: 14px;
 		}
 		div#main{
 			width: 300px;
 			border: 1px solid #ddd;
-			position: fixed;
+			float: left;
 			background: #eee;
 			padding: 10px 20px;
-			display: none;
-		}
-		a#about {
-			padding: 10px 30px;
-			background: #FA6900;
-			position: absolute;
-			text-decoration: none;
-			color: white;
-			font-size: 13px;
-			cursor: pointer;
-			font-weight: 600;
-			text-transform: uppercase;
+			min-height: 800px;
+			line-height: 20px;
 		}
 		h4 {
 			float: right;
@@ -36,9 +27,7 @@
 	</style>
 </head>
 <body>
-<a href="#" id="about">About</a>
 <div id="main">
-<h4>&#215;</h4>
 <h2>About</h2>
 <p>Pi approximation using the Monte Carlo method</p>
 <h3 id="method">Method</h3>
@@ -56,18 +45,4 @@
 <li>Coffeescript</li>
 </ul>
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-		var main = $('#main');
-		var canvas = $('canvas');
-		$(main).on('click', function(e) {
-			$(this).slideUp(200);
-		});
-
-		$('#about').on('click', function() {
-			$(main).slideDown(200);
-		})
-});
-</script>
 </body>

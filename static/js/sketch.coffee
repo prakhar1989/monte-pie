@@ -1,10 +1,10 @@
 Canvas =
-  width: 1200
+  width: 800
   height: 800
   totalRuns: 0
   insideCircle: 0
   textSize: 14
-  gridPadding: 20
+  gridPadding: 40
   pointRadius: 5
   radius: 320
   getOrigin: () ->
@@ -14,6 +14,7 @@ Canvas =
 distance = (x, y) -> Math.sqrt(x*x + y*y)
 
 drawGrid = () ->
+  textFont "monospace"
   fill 244
 
   # vertical lines
@@ -68,9 +69,7 @@ window.setup = () ->
   createCanvas Canvas.width + 1, Canvas.height + 1
   noStroke()
   drawGrid()
-
-  # setup text
-  textFont "monospace"
+  # slider = createSlider 10, 1000, 20
 
 window.draw = () ->
   Canvas.insideCircle += if runExperiment() then 1 else 0
