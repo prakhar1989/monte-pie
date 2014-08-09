@@ -7,16 +7,16 @@
 		body{
 			font-family: sans-serif;
 			margin:0; padding: 0;
-			font-size: 14px;
+			font-size: 13px;
 		}
 		div#main{
-			width: 300px;
+			width: 320px;
 			border: 1px solid #ddd;
 			float: left;
 			background: #eee;
 			padding: 10px 20px;
 			min-height: 800px;
-			line-height: 20px;
+			line-height: 19px;
 		}
 		h4 {
 			float: right;
@@ -25,6 +25,7 @@
 			cursor: pointer;
 		}
 		h1 { margin-bottom: 60px; }
+		ul { padding-left: 15px;}
 
 	</style>
 </head>
@@ -32,21 +33,21 @@
 <div id="main">
 <h1>Experiment</h1>
 
-<h2>About</h2>
-<p>Pi approximation using the Monte Carlo method</p>
+<h3 id="method">Start</h3>
+<p>Enter the number of times you want the experiment in the box above and click on Simulate</p>
+
 <h3 id="method">Method</h3>
-<p>A <a href="http://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a> method relies on repeated random sampling to simulate some process or compute a value.</p>
+<p>The <a href="http://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a> method relies on repeated random sampling to simulate some process or compute a value.</p>
 <p>Pi can be computed using Monte Carlo simulation through a series of experiments.  Here is a single experiment:</p>
 <ul>
 <li>Choose a pair of random floating point numbers between 0 and 1</li>
 <li>Call the numbers x and y, think of (x,y) as a point on the plane in the unit square</li>
-<li>Test whether the point falls within the unit circle by measuring the distance from the point to the origin:</li>
+<li>Test whether the point falls within the unit circle by measuring the distance from the point to the origin</li>
 </ul>
 <p>Now suppose you do <code>m</code> experiments and in <code>n</code> of those experiments, the random point chosen falls within the upper right quarter of the unit circle. Since the area of a circle is known to be <code>pi * r^2</code> and the area of a square is <code>r^2</code> (and here we are dealing with a radius/square side of length 1), the following equations hold:</p>
-<h3 id="libraries">Built with</h3>
-<ul>
-<li><a href="http://p5js.org">p5.js</a></li>
-<li>Coffeescript</li>
-</ul>
+<img src="/static/img/formula.png" alt="formula" />
+<h3 id="libraries">Built with <a href="http://p5js.org">p5.js</a></h3>
+<iframe src="http://ghbtns.com/github-btn.html?user=prakhar1989&repo=monte-pie&type=watch"
+  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
 </div>
 </body>
