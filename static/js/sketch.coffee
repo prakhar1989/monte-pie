@@ -76,7 +76,6 @@ setupDOM = () ->
   Canvas.frameRate.position 150, 120
   Canvas.reset.mousePressed resetCounts
   Canvas.button.mousePressed () ->
-    console.log Canvas.frameRate.value()
     frameRate Canvas.frameRate.value()
     `loop()`
 

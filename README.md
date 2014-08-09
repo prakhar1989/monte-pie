@@ -2,6 +2,10 @@ Monte-Pie
 ===
 > Pi approximation using the Monte Carlo method
 
+![equation](shot.png)
+
+[Play it here](http://montepie.herokuapp.com/)
+
 ### Method
 
 A Monte Carlo method relies on repeated random sampling to simulate some process or compute a value.  See Wikipedia: http://en.wikipedia.org/wiki/Monte_Carlo_method
@@ -19,6 +23,3 @@ Now suppose you do `m` experiments and in `n` of those experiments, the random p
 ### Libraries
 - [p5.js](http://p5js.org)
 - Coffeescript
-
-### Demo
-[Play it here](http://montepie.herokuapp.com/)
