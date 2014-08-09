@@ -68,12 +68,16 @@ runExperiment = () ->
 setupDOM = () ->
   Canvas.input = createInput()
   Canvas.input.position 40, 80
-  Canvas.button = createButton 'Simulate!'
+  Canvas.button = createButton 'Simulate'
   Canvas.button.position 150, 80
-  Canvas.reset = createButton 'Reset!'
+  Canvas.reset = createButton 'Reset'
   Canvas.reset.position 250, 80
+  Canvas.frameRate = createSlider 30, 120, 60
+  Canvas.frameRate.position 150, 120
   Canvas.reset.mousePressed resetCounts
   Canvas.button.mousePressed () ->
+    console.log Canvas.frameRate.value()
+    frameRate Canvas.frameRate.value()
     `loop()`
 
 showResults = () ->

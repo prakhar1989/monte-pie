@@ -7,7 +7,7 @@
 		body{
 			font-family: sans-serif;
 			margin:0; padding: 0;
-			font-size: 13px;
+			font-size: 12px;
 			background: url("/static/img/tiny_grid_2.png");
 			color: rgb(52, 73, 94);
 		}
@@ -16,7 +16,7 @@
 			margin-bottom: 0;
 		}
 		div#main{
-			width: 320px;
+			width: 350px;
 			float: left;
 			background: white;
 			padding: 10px 20px;
@@ -34,7 +34,6 @@
 			font-weight: 600;
 			cursor: pointer;
 		}
-		button:last-child { background: #e27a3e; }
 		h4 {
 			font-size: 18px;
 			margin-top: 30px;
@@ -42,13 +41,8 @@
 		}
 		h1 { margin-bottom: 60px; }
 		ul { padding-left: 15px;}
-		iframe {
-			float: right;
-			margin-top: 15px;
-		}
-		#p5 { 
-			height: 50px;
-		}
+		iframe { float: right; margin-top: 15px; }
+		#p5 { height: 50px; }
 	</style>
 </head>
 <body>
@@ -56,6 +50,7 @@
 <iframe src="http://ghbtns.com/github-btn.html?user=prakhar1989&repo=monte-pie&type=watch"
   allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
 <h1>Monte Pi</h1>
+<span class="framerate">Set Framerate</span>
 
 <h3 id="method">Start</h3>
 <p>Enter the number of times you want the experiment in the box above and click on Simulate</p>
@@ -64,9 +59,9 @@
 <p>The <a href="http://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a> method relies on repeated random sampling to simulate some process or compute a value.</p>
 <p>Pi can be computed using Monte Carlo simulation through a series of experiments.  Here is a single experiment:</p>
 <ul>
-<li>Choose a pair of random floating point numbers between 0 and 1</li>
-<li>Call the numbers x and y, think of (x,y) as a point on the plane in the unit square</li>
-<li>Test whether the point falls within the unit circle by measuring the distance from the point to the origin</li>
+	<li>Choose a pair of random floating point numbers between 0 and 1</li>
+	<li>Call the numbers x and y, think of (x,y) as a point on the plane in the unit square</li>
+	<li>Test whether the point falls within the unit circle by measuring the distance from the point to the origin</li>
 </ul>
 <p>Now suppose you do <code>m</code> experiments and in <code>n</code> of those experiments, the random point chosen falls within the upper right quarter of the unit circle. Since the area of a circle is known to be <code>pi * r^2</code> and the area of a square is <code>r^2</code> (and here we are dealing with a radius/square side of length 1), the following equations hold:</p>
 <img src="/static/img/formula.png" alt="formula" />
