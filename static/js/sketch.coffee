@@ -8,6 +8,7 @@ Canvas =
   pointRadius: 10
   input: null
   button: null
+  reset: null
   radius: 320
   textArea:
     x: 10
@@ -68,9 +69,11 @@ setupDOM = () ->
   Canvas.input = createInput()
   Canvas.input.position 40, 80
   Canvas.button = createButton 'Simulate!'
-  Canvas.button.position 190, 80
+  Canvas.button.position 150, 80
+  Canvas.reset = createButton 'Reset!'
+  Canvas.reset.position 250, 80
+  Canvas.reset.mousePressed resetCounts
   Canvas.button.mousePressed () ->
-    resetCounts()
     `loop()`
 
 showResults = () ->
@@ -89,6 +92,8 @@ showResults = () ->
   text "\u03a0 = " + pi, Canvas.textArea.x + 10, Canvas.textArea.y + 110
 
 resetCounts = () ->
+  clear()
+  drawGrid()
   Canvas.insideCircle = 0
   Canvas.totalRuns = 0
 
