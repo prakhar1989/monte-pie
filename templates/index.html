@@ -8,30 +8,53 @@
 			font-family: sans-serif;
 			margin:0; padding: 0;
 			font-size: 13px;
+			background: url("/static/img/tiny_grid_2.png");
+			color: rgb(52, 73, 94);
+		}
+		h3 {
+			text-transform: uppercase;
+			margin-bottom: 0;
 		}
 		div#main{
 			width: 320px;
-			border: 1px solid #ddd;
 			float: left;
-			background: #eee;
+			background: white;
 			padding: 10px 20px;
-			min-height: 800px;
 			line-height: 19px;
+			margin: 20px;
+			padding-bottom: 20px;
+		}
+		input { padding: 6px; padding-left: 12px; width: 140px;}
+		button {
+			background: #454e5c;
+			border: 0;
+			color: white;
+			padding: 8px 16px;
+			text-transform: uppercase;
+			font-weight: 600;
+			cursor: pointer;
 		}
 		h4 {
-			float: right;
 			font-size: 18px;
-			margin-top: 16px;
-			cursor: pointer;
+			margin-top: 30px;
+			margin-bottom: 10px;
 		}
 		h1 { margin-bottom: 60px; }
 		ul { padding-left: 15px;}
-
+		iframe {
+			float: right;
+			margin-top: 15px;
+		}
+		#p5 { 
+			height: 50px;
+		}
 	</style>
 </head>
 <body>
 <div id="main">
-<h1>Experiment</h1>
+<iframe src="http://ghbtns.com/github-btn.html?user=prakhar1989&repo=monte-pie&type=watch"
+  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+<h1>Monte Pi</h1>
 
 <h3 id="method">Start</h3>
 <p>Enter the number of times you want the experiment in the box above and click on Simulate</p>
@@ -46,8 +69,7 @@
 </ul>
 <p>Now suppose you do <code>m</code> experiments and in <code>n</code> of those experiments, the random point chosen falls within the upper right quarter of the unit circle. Since the area of a circle is known to be <code>pi * r^2</code> and the area of a square is <code>r^2</code> (and here we are dealing with a radius/square side of length 1), the following equations hold:</p>
 <img src="/static/img/formula.png" alt="formula" />
-<h3 id="libraries">Built with <a href="http://p5js.org">p5.js</a></h3>
-<iframe src="http://ghbtns.com/github-btn.html?user=prakhar1989&repo=monte-pie&type=watch"
-  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+<h4> Built with</h4>
+<a href="http://p5js.org"><img id="p5" src="http://p5js.org/img/p5js-beta.svg" alt="p5 logo" /></a>
 </div>
 </body>

@@ -1,6 +1,6 @@
 Canvas =
-  width: 800
-  height: 800
+  width: 750
+  height: 808
   totalRuns: 0
   insideCircle: 0
   textSize: 14
@@ -11,9 +11,9 @@ Canvas =
   radius: 320
   textArea:
     x: 10
-    y: 20
-    w: 250
-    h: 90
+    y: 30
+    w: 280
+    h: 140
   getOrigin: () ->
     x: this.width/2
     y: this.height/2
@@ -24,21 +24,13 @@ drawGrid = () ->
   textFont "monospace"
   fill 244
 
-  # vertical lines
-  for i in [0..Canvas.height] by Canvas.gridPadding
-    rect 0, i, Canvas.width, 1
-
-  # horizontal lines
-  for i in [0..Canvas.width] by Canvas.gridPadding
-    rect i, 0, 1, Canvas.height
-
   # axes
-  fill 200
-  rect 0, Canvas.getOrigin().y - 1, Canvas.width, 2
-  rect Canvas.getOrigin().x - 1, 0, 2, Canvas.height
+  fill 204, 101, 192, 5
+  stroke 127, 63, 120
+  rect Canvas.getOrigin().x - Canvas.radius, Canvas.getOrigin().y, 2 * Canvas.radius, 1
+  rect Canvas.getOrigin().x, Canvas.getOrigin().y - Canvas.radius, 1, 2 * Canvas.radius
 
   # circle
-  fill 204, 101, 192, 5
   stroke 127, 63, 120
   ellipse Canvas.getOrigin().x, Canvas.getOrigin().y,
           2 * Canvas.radius, 2 * Canvas.radius
@@ -74,9 +66,9 @@ runExperiment = () ->
 
 setupDOM = () ->
   Canvas.input = createInput()
-  Canvas.input.position 20, 70
+  Canvas.input.position 40, 80
   Canvas.button = createButton 'Simulate!'
-  Canvas.button.position 150, 70
+  Canvas.button.position 190, 80
   Canvas.button.mousePressed () ->
     resetCounts()
     `loop()`
@@ -85,17 +77,16 @@ showResults = () ->
   fill 255
   rect Canvas.textArea.x - 10, Canvas.textArea.y - 10, Canvas.textArea.w, Canvas.textArea.h
   stroke 0, 0, 0, 0
-  fill 196, 77, 88
+  fill 52, 73, 94
 
   # calc pi
   pi = (4.0 * Canvas.insideCircle) / Canvas.totalRuns
   
-  textSize 12
-  text "Total Experiments (m): " + Canvas.totalRuns, Canvas.textArea.x, Canvas.textArea.y
-  text "Points inside circle (n): " + Canvas.insideCircle, Canvas.textArea.x, Canvas.textArea.y + 20
-  text "Estimated Pi = 4 x n / m", Canvas.textArea.x, Canvas.textArea.y + 40
   textSize 18
-  text "\u03a0 = " + pi, Canvas.textArea.x, Canvas.textArea.y + 70
+  text "m = " + Canvas.totalRuns, Canvas.textArea.x + 10, Canvas.textArea.y + 20
+  text "n = " + Canvas.insideCircle, Canvas.textArea.x + 10, Canvas.textArea.y + 50
+  text "\u03a0 = 4 x n / m ", Canvas.textArea.x + 10, Canvas.textArea.y + 80
+  text "\u03a0 = " + pi, Canvas.textArea.x + 10, Canvas.textArea.y + 110
 
 resetCounts = () ->
   Canvas.insideCircle = 0
